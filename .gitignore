@@ -47,7 +47,9 @@ include/divisible/*
 .vscode/
 .idea/*.xml
 
-build*/**/*
+build/**/*
+build-vscode/**/*
+data/*
 
 include/*
 lib/*

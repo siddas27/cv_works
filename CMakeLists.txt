@@ -1,29 +1,21 @@
-cmake_minimum_required(VERSION 3.22)
-project(VisionC)
+cmake_minimum_required(VERSION "3.17")
 
-set(CMAKE_CXX_STANDARD 17)
+# name of this example project
+project(simple-demo)
 
-# Fetch from git
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-# set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
 
-#FetchContent_Declare(
-#            opencv
- #           GIT_REPOSITORY https://github.com/opencv/opencv.git
- #           GIT_TAG        4.4.0
-#)
-#FetchContent_MakeAvailable(opencv)
+set(OpenCV_DIR /Users/siddharthdas/cv_works/opencv/install/lib/cmake/opencv4)
 
-set(OpenCV_DIR /tmp/build/vscode/)
-find_package( OpenCV REQUIRED)
+set(CMAKE_CXX_STANDARD 14)
 
-enable_testing()
+find_package( OpenCV REQUIRED )
 
-add_subdirectory(src)
-add_subdirectory(tests)
+# tell the build to include the headers from OpenCV
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+
+# specify the executable target to be built
+# src/interactiveColorSegment.cc
+add_executable(simpledemo src/utils.cc)
+
+# tell it to link the executable target against OpenCV
+target_link_libraries(simpledemo ${OpenCV_LIBS} )
