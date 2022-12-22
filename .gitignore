@@ -50,7 +50,7 @@ include/divisible/*
 build/**/*
 build-vscode/**/*
 data/*
-
+opencv/
 include/*
 lib/*
 bin/*
