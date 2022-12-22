@@ -9,12 +9,13 @@ int main(int argc, char* argv[])
 {
  //Open the default video camera
  VideoCapture cap(0);
+ cap.set()
 
  // if not success, exit program
  if (cap.isOpened() == false)  
  {
   cout << "Cannot open the video camera" << endl;
-  cin.get(); //wait for any key press
+  cin.get(CAP_PROP_FRAME_WIDTH); //wait for any key press
   return -1;
  } 
 
@@ -54,5 +55,4 @@ int main(int argc, char* argv[])
  }
 
  return 0;
-
 }

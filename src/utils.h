@@ -11,7 +11,7 @@
 using namespace cv;
 using namespace std;
 
-void hsvTransform(Mat& );
+void hsvTransform(Mat& original);
 
 vector<Vec4i> drawLines(Mat& dst, vector<Vec4i>& lines);
 
